@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ICTL" default="jar" basedir=".">
+	<property name="lib"	location="../lib/"/>
+	<property name="src"	location="dist/${ant.project.name}-src.zip"/>
+	<property name="cls"	location="dist/${ant.project.name}-cls.zip"/>
+	<property name="jar"	location="dist/Interative_Cell_Lineage_Tracer.jar"/>
+		
+	<path id="lib.path">
+		<pathelement path="${lib}/ij.jar"/>
+	</path>
+
+	<!-- Compilation and distribution in zip and jar file -->
+	<target name="jar">
+		<copy file="plugins.config" toDir="bin" />			
+		<mkdir dir="dist"/>
+		<zip destfile="${src}" basedir="src" />
+		<jar destfile="${jar}" basedir="bin" />
+		<copy file="${jar}" toDir="." />	
+	</target>
+			
+	<!-- Clean classes, jar and zip -->
+	<target name="clean" description="Clean up build products">
+		<delete dir="bin"/>
+	    <delete dir="dist"/>
+	</target>
+</project>
+	
