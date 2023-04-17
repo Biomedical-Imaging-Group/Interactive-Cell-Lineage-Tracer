@@ -1,5 +1,5 @@
 /*
- * Interface Cell Lineage Tracer (ICLT)
+ * Interactive Cell Lineage Tracer (ICLT)
  * 
  * Author: Daniel Sage and Chiara Toniolo, EPFL
  * 
@@ -17,7 +17,7 @@
 /*
  * Copyright 2014-2023 Biomedical Imaging Group at the EPFL.
  * 
- * This file is part of Interface Cell Lineage Tracer (ICLT).
+ * This file is part of Interactive Cell Lineage Tracer (ICLT).
  * 
  * ICLT is free software: you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software

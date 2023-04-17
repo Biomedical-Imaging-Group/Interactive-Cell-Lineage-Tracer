@@ -1,0 +1,4 @@
+#Interactive Cell Lineage Tracer
+#Sun Apr 16 13:29:16 CEST 2023
+Hyperstack-spnChannels=2
+Hyperstack-spnSlices=3

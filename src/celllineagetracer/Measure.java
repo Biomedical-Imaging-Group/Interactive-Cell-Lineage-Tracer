@@ -1,5 +1,5 @@
 /*
- * Interface Cell Lineage Tracer (ICLT)
+ * Interactive Cell Lineage Tracer (ICLT)
  * 
  * Author: Daniel Sage and Chiara Toniolo, EPFL
  * 
@@ -17,7 +17,7 @@
 /*
  * Copyright 2014-2023 Biomedical Imaging Group at the EPFL.
  * 
- * This file is part of Interface Cell Lineage Tracer (ICLT).
+ * This file is part of Interactive Cell Lineage Tracer (ICLT).
  * 
  * ICLT is free software: you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
@@ -41,6 +41,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Set;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -144,16 +145,16 @@ public class Measure implements ActionListener, Runnable {
 			}
 		}
 		Analyzer analyzer = new Analyzer(imp);
-		Iterator<Integer> localIterator2;
-		for (Iterator<String> localIterator1 = Supervisor.cells.keySet().iterator(); localIterator1.hasNext(); localIterator2.hasNext()) {
-			String name = (String) localIterator1.next();
+
+		for (String name : Supervisor.cells.keySet()) {
 			Cell cell = (Cell) Supervisor.cells.get(name);
-			localIterator2 = cell.getListOutlinesFrame().iterator();
-			Integer frame = (Integer) localIterator2.next();
-			Outline outline = cell.getOutline(frame);
-			for (int z = minSlice; z <= maxSlice; z++) {
+			Set<Integer> co = cell.getListOutlinesFrame();
+			for(int frame : co) {
+
+				Outline outline = cell.getOutline(frame);
+				for (int z = minSlice; z <= maxSlice; z++) {
 				for (int c = minChannel; c <= maxChannel; c++) {
-					imp.setPosition(c, z, frame.intValue());
+					imp.setPosition(c, z, frame);
 					imp.updateAndDraw();
 					Point2D.Double cog = outline.getPolyline().computeCoG();
 
@@ -175,12 +176,12 @@ public class Measure implements ActionListener, Runnable {
 					row[6] = String.format("%3.2f", cog.y);
 					row[7] = "" + c;
 					row[8] = "" + z;
-					row[9] = frame.toString();
+					row[9] = "" + frame;
 					for (int col = 0; col < ncol; col++) {
 						row[(10 + col)] = rt.getStringValue(headersTable[col], rt.getCounter() - 1);
 					}
 					rows.add(row);
-
+				}
 				}
 			}
 		}
