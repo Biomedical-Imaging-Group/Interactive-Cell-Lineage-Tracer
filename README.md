@@ -15,10 +15,12 @@
 ![screenshot](screenshot.png)
 
 **Installation**
-1. Download the plugin file ![Interative_Cell_Lineage_Tracer.jar](Interative_Cell_Lineage_Tracer.jar)
+1. Download the plugin file <span style="color:red">**Interative_Cell_Lineage_Tracer.jar**</span>
 2. Put the plugin file in the folder 'plugins' of your ImageJ or Fiji application
 3. Restart ImageJ or Fiji
 
 **How to use**
 
-Have a look on the video video-iclt-2023.mov
+1. Have a look on the video <span style="color:red">**video-iclt-2023.mov**</span> 
+2. Help panel of the plugin
+3. Read the book chapter
