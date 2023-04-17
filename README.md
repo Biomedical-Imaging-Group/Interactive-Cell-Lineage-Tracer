@@ -1,6 +1,6 @@
 # **Interactive Cell Lineage Tracer**
 
-*written by Daniel Sage, 14 April 2023.*
+*written by Daniel Sage and Chiara Toniolo, 14 April 2023.*
 
 **Outline**: This is an [ImageJ](https://imagej.net/ij/index.html) or [Fiji](https://fiji.sc) plugin to track cells and report morphometric or intensity measurements. The tracking of the cells is perform in semi-automatic way, the user have to draw few outline of the cell, e.g. on the first and on the last frame. The program will automatically interpolate the trajectory or propagate until the end of the sequence of frame. The code is handle multiple channels, but the segmentation is only done in one the channel. 
 
